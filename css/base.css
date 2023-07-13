@@ -1,0 +1,355 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+:root {
+	font-size: 16px;
+	--color-line: rgb(0 0 0 / 36%);
+	--color-bg: #fff;
+	--color-text: #000;
+	--color-link: #000;
+	--color-link-hover: #000;
+	--content-font-family: "marlide-display-variable", sans-serif;
+  	--content-font-var: 'wght' 300;
+  	--content-font-weight: 300;
+  	--content-font-size: clamp(1rem,5vw,5rem);
+  	--content-letter-spacing: 0em;
+  	--content-whitespace: 0.175em;
+  	--content-transform: none;
+}
+
+body {
+	margin: 0;
+	color: var(--color-text);
+	font-family: tenon, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background: var(--color-bg);
+}
+
+.demo-2 {
+	--content-font-family: tenon, sans-serif;
+	--content-font-size: clamp(1rem,4vw,5rem);
+	--content-font-weight: 300;
+	--content-letter-spacing: -0.05em;
+}
+
+.demo-3 {
+	--content-font-family: "stinger-variable", sans-serif;
+	--content-font-size: clamp(1rem,4.25vw,5rem);
+	--content-font-var: "wdth" 109, "wght" 220;
+}
+
+.demo-4 {
+	--content-font-family: "arsenica-variable", sans-serif;
+	--content-font-size: clamp(1rem,4.75vw,5rem);
+	--content-font-var: "opsz" 450, "wght" 280;
+}
+
+.demo-5 {
+	--content-font-family: "hoss-sharp", sans-serif;
+	--content-font-size: clamp(1rem,3.5vw,5rem);
+	--content-font-weight: 300;
+}
+
+.demo-6 {
+	--content-font-var: 'wght' 455;
+	--content-font-size: clamp(1rem,4.75vw,5rem);
+}
+
+.demo-7 {
+	--content-font-family: "interstate-mono", sans-serif;
+	--content-font-size: clamp(1rem,3.25vw,5rem);
+	--content-font-weight: 400;
+	--content-letter-spacing: -0.05em;
+	--content-whitespace: 0.575em;
+	--content-transform: uppercase;
+}
+
+.demo-8 {
+	--content-font-family: "lemonde-journal", sans-serif;
+	--content-font-size: clamp(1rem,3.5vw,5rem);
+	--content-font-weight: 400;
+}
+
+.demo-9 {
+	--content-font-family: "hoss-sharp", sans-serif;
+	--content-font-size: clamp(1rem,3.5vw,5rem);
+	--content-font-weight: 300;
+}
+
+.demo-10 {
+	--content-font-family: "adonis-web", sans-serif;
+	--content-font-size: clamp(1rem,4.15vw,5rem);
+	--content-font-weight: 400;
+}
+
+.demo-11 {
+	--content-font-family: tenon, sans-serif;
+	--content-font-size: clamp(1rem,4.5vw,5rem);
+	--content-font-weight: 200;
+}
+
+.demo-12 {
+	--content-font-family: "stinger-variable", sans-serif;
+	--content-font-size: clamp(1rem,4vw,5rem);
+	--content-font-var: "wdth" 105, "wght" 600;
+}
+
+/* Page Loader */
+.js .loading::before,
+.js .loading::after {
+	content: '';
+	position: fixed;
+	z-index: 1000;
+}
+
+.js .loading::before {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--color-bg);
+}
+
+.js .loading::after {
+	top: 50%;
+	left: 50%;
+	width: 60px;
+	height: 60px;
+	margin: -30px 0 0 -30px;
+	border-radius: 50%;
+	opacity: 0.4;
+	background: var(--color-link);
+	animation: loaderAnim 0.7s linear infinite alternate forwards;
+
+}
+
+@keyframes loaderAnim {
+	to {
+		opacity: 1;
+		transform: scale3d(0.5,0.5,1);
+	}
+}
+
+a {
+	text-decoration: none;
+	color: var(--color-link);
+	outline: none;
+	cursor: pointer;
+}
+
+a:hover {
+	color: var(--color-link-hover);
+	outline: none;
+}
+
+/* Better focus styles from https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible */
+a:focus {
+	/* Provide a fallback style for browsers
+	 that don't support :focus-visible */
+	outline: none;
+	background: lightgrey;
+}
+
+a:focus:not(:focus-visible) {
+	/* Remove the focus indicator on mouse-focus for browsers
+	 that do support :focus-visible */
+	background: transparent;
+}
+
+a:focus-visible {
+	/* Draw a very noticeable focus style for
+	 keyboard-focus on browsers that do support
+	 :focus-visible */
+	outline: 2px solid red;
+	background: transparent;
+}
+
+.unbutton {
+	background: none;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	font: inherit;
+	color: inherit;
+	cursor: pointer;
+}
+
+.unbutton:focus {
+	outline: none;
+}
+
+main {
+	display: grid;
+	grid-template-areas: 'frame' 'content';
+	grid-gap: 0.5rem;
+	padding: 2rem;
+	height: 100vh;
+}
+
+.frame {
+	grid-area: frame;
+	position: relative;
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-areas: 'title' 'sponsor' 'back' 'prev' 'demos' 'trigger';
+	grid-gap: 1rem;
+	justify-items: start;
+	align-self: start;
+	justify-self: start;
+	align-items: center;
+}
+
+body #cdawrap {
+    justify-self: start;
+}
+
+.frame a {
+	pointer-events: auto;
+}
+
+.frame a:not(.frame__title-back):not(.demos__item) {
+	white-space: nowrap;
+	overflow: hidden;
+	position: relative;
+}
+
+.frame a:not(.frame__title-back):not(.demos__item)::before {
+	content: '';
+	height: 1px;
+	width: 100%;
+	background: currentColor;
+	position: absolute;
+	top: 90%;
+	transition: transform 0.3s;
+	transform-origin: 0% 50%;
+}
+
+.frame a:not(.frame__title-back):not(.demos__item):hover::before {
+	transform: scaleX(0);
+	transform-origin: 100% 50%;
+}
+
+.frame__title {
+	font-size: inherit;
+	margin: 0 0 2rem;
+	font-weight: 500;
+}
+
+.frame__back {
+	grid-area: back;
+	margin-top: 1rem;
+}
+
+.frame__prev {
+	grid-area: prev;
+}
+
+.trigger {
+	grid-area: trigger;
+	border: 1px solid var(--color-text);
+	padding: 0.75rem 1.25rem;
+	border-radius: 1.5rem;
+	margin: 2rem 0;
+	font-weight: 500;
+	color: var(--color-text);
+}
+
+.trigger:hover {
+	color: var(--color-bg);
+	background: var(--color-text);
+	transition: 0.2s all;
+}
+
+.demos {
+	grid-area: demos;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.demos__title {
+	width: 100%;
+}
+
+.demos__item {
+	flex: none;
+	width: 2.75rem;
+	border: 1px solid var(--color-text);
+	color: var(--color-text);
+	aspect-ratio: 1;
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+}
+
+span.demos__item,
+.demos__item:hover {
+	color: var(--color-bg);
+	background: var(--color-text);
+	transition: 0.2s all;
+}
+
+.content {
+	grid-area: content;
+	display: grid;
+	align-content: start;
+	grid-template-areas: 'content';
+}
+
+.content__text {
+	hyphens: auto;
+	display: flex;
+	text-transform: var(--content-transform);
+	flex-wrap: wrap;
+	align-content: start;
+	font-size: var(--content-font-size);
+	font-family: var(--content-font-family);
+  	font-variation-settings: var(--content-font-var);
+  	font-weight: var(--content-font-weight);
+  	letter-spacing: var(--content-letter-spacing);
+}
+
+.js .content__text {
+	grid-area: content;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.js .content__text--current {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.word-wrap {
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	margin-top: var(--word-correction);
+
+}
+
+.word > .char:last-child {
+	margin-right: var(--content-whitespace);
+}
+
+@media screen and (min-width: 53em) {
+	main {
+		grid-template-areas: 'content frame';
+		grid-template-columns: 1fr 300px;
+		padding: 10vh 3rem;
+		grid-gap: 2rem;
+	}
+	.frame {
+		border-left: 1px solid var(--color-line);
+		min-height: 70vh;
+		padding: 1.5rem 2.5rem;
+		grid-template-areas: 'title' 'sponsor' 'back' 'prev' 'trigger' 'demos';
+	}
+	.content {
+		padding: 5vh 2rem 0;
+	}
+}
