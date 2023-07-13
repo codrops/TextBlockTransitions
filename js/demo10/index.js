@@ -1,3 +1,5 @@
+import { preloadFonts } from '../utils.js';
+
 // Splitting.js
 // Calling the Splitting function to split the text into individual words/characters, 
 const splittingOutput = Splitting();
@@ -98,3 +100,9 @@ const switchTexts = () => {
 };
 
 document.querySelector('.trigger').addEventListener('click', switchTexts);
+
+// Start preloading fonts
+preloadFonts('wah6sge').then(() => {
+    // Once fonts are loaded, remove the 'loading' class from the body, ending the loading state
+    document.body.classList.remove('loading');
+});

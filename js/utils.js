@@ -14,6 +14,19 @@ const wrapElements = (elems, wrapType, wrapClass) => {
     });
 };
 
+// Preload fonts
+const preloadFonts = (id) => {
+    return new Promise((resolve) => {
+        WebFont.load({
+            typekit: {
+                id: id
+            },
+            active: resolve
+        });
+    });
+};
+
 export {
-    wrapElements
+    wrapElements, 
+    preloadFonts
 };
